@@ -1,0 +1,5 @@
+<h3><%= post.title %></h3>
+<% if user_signed_in? %>
+  <div>By: <%= post.user.email %></div>
+<% end %>
+<div><%= post.body %></div>
