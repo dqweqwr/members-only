@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @post = @user.posts.new(post_params)
 
     if @post.save
@@ -26,5 +27,6 @@ class PostsController < ApplicationController
   end
 
   def require_login
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
